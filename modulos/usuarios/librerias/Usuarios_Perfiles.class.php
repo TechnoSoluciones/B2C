@@ -8,39 +8,39 @@
       function crear($datos){
           $db =new MySQL();
           $sql="INSERT INTO `".$configuracion["empresa"]."_usuarios_perfiles` SET "
-              ."`USUARIO`='".$datos['USUARIO']."',"
-              ."`EMPRESA`='".$datos['EMPRESA']."',"
-              ."`CAMPO`='".$datos['CAMPO']."',"
-              ."`VALOR`='".$datos['VALOR']."',"
-              ."`FECHA`='".$datos['FECHA']."',"
-              ."`HORA`='".$datos['HORA']."',"
-              ."`CREADOR`='".$datos['CREADOR']."'"
+              ."`usuario`='".$datos['usuario']."',"
+              ."`empresa`='".$datos['empresa']."',"
+              ."`campo`='".$datos['campo']."',"
+              ."`valor`='".$datos['valor']."',"
+              ."`fecha`='".$datos['fecha']."',"
+              ."`hora`='".$datos['hora']."',"
+              ."`creador`='".$datos['creador']."'"
               .";";
           $db->sql_query($sql);
           $db->sql_close();
       }
 
-      function actualizar($USUARIO,$campo,$valor){
+      function actualizar($usuario,$campo,$valor){
           $db =new MySQL();
           $sql="UPDATE `".$configuracion["empresa"]."_usuarios_perfiles` "
               ."SET `".$campo."`='".$valor."' "
-              ."WHERE `USUARIO`='".$USUARIO."';";
+              ."WHERE `usuario`='".$usuario."';";
           $db->sql_query($sql);
           $db->sql_close();
       }
 
-      function eliminar($USUARIO){
+      function eliminar($usuario){
           $db =new MySQL();
           $sql="DELETE FROM `".$configuracion["empresa"]."_usuarios_perfiles` "
-              ."WHERE `USUARIO`='".$USUARIO."';";
+              ."WHERE `usuario`='".$usuario."';";
           $db->sql_query($sql);
           $db->sql_close();
       }
 
-      function consultar($USUARIO){
+      function consultar($usuario){
           $db      =new MySQL();
           $sql     ="SELECT * FROM `".$configuracion["empresa"]."_usuarios_perfiles` "
-              ."WHERE `USUARIO`='".$USUARIO."';";
+              ."WHERE `usuario`='".$usuario."';";
           $consulta=$db->sql_query($sql);
           $fila    =$db->sql_fetchrow($consulta);
           $db->sql_close();
