@@ -1,5 +1,8 @@
 <?php
 
+  $raiz=isset($raiz)?$raiz:"../../../";
+  require_once($raiz."modulos/usuarios/Configuracion.cnf.php");
+  if(!class_exists('Usuarios_Empresas')){
   class Usuarios_Empresas{
 
       function crear($datos){
@@ -42,6 +45,6 @@
           return($fila);
       }
 
-  }
+  }}
 ?>
 

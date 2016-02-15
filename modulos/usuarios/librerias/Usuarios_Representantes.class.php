@@ -1,5 +1,8 @@
-
 <?php
+
+  $raiz=isset($raiz)?$raiz:"../../../";
+  require_once($raiz."modulos/usuarios/Configuracion.cnf.php");
+  if(!class_exists('Usuarios_Presentantes')){
 
   class Usuarios_Representantes{
 
@@ -43,5 +46,5 @@
       }
 
   }
-
+  }
 ?>

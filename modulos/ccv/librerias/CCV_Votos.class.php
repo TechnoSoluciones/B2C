@@ -2,44 +2,43 @@
 
   $raiz=isset($raiz)?$raiz:"../../../";
   require_once($raiz."modulos/usuarios/Configuracion.cnf.php");
-  if(!class_exists('Usuarios_Jerarquias')){
+  if(!class_exists('CCV_Votos')){
 
-      class Usuarios_jerarquias{
+      class CCV_Votos{
 
           function crear($datos){
               $db =new MySQL();
-              $sql="INSERT INTO `".$configuracion["empresa"]."usuarios_jerarquias` SET "
+              $sql="INSERT INTO `".$configuracion["empresa"]."_ccv_votos` SET "
+                  ."`publicacion`='".$datos['publicacion']."',"
                   ."`usuario`='".$datos['usuario']."',"
-                  ."`rol`='".$datos['rol']."',"
                   ."`fecha`='".$datos['fecha']."',"
-                  ."`hora`='".$datos['hora']."',"
-                  ."`creador`='".$datos['creador']."'"
+                  ."`hora`='".$datos['hora']."'"
                   .";";
               $db->sql_query($sql);
               $db->sql_close();
           }
 
-          function actualizar($usuario,$campo,$valor){
+          function actualizar($publicacion,$campo,$valor){
               $db =new MySQL();
-              $sql="UPDATE `".$configuracion["empresa"]."usuarios_jerarquias` "
+              $sql="UPDATE `".$configuracion["empresa"]."_ccv_votos` "
                   ."SET `".$campo."`='".$valor."' "
-                  ."WHERE `usuario`='".$usuario."';";
+                  ."WHERE `publicacion`='".$publicacion."';";
               $db->sql_query($sql);
               $db->sql_close();
           }
 
-          function eliminar($usuario){
+          function eliminar($publicacion){
               $db =new MySQL();
-              $sql="DELETE FROM `".$configuracion["empresa"]."usuarios_jerarquias` "
-                  ."WHERE `usuario`='".$usuario."';";
+              $sql="DELETE FROM `".$configuracion["empresa"]."_ccv_votos` "
+                  ."WHERE `publicacion`='".$publicacion."';";
               $db->sql_query($sql);
               $db->sql_close();
           }
 
-          function consultar($usuario){
+          function consultar($publicacion){
               $db      =new MySQL();
-              $sql     ="SELECT * FROM `".$configuracion["empresa"]."usuarios_jerarquias` "
-                  ."WHERE `usuario`='".$usuario."';";
+              $sql     ="SELECT * FROM `".$configuracion["empresa"]."_ccv_votos` "
+                  ."WHERE `publicacion`='".$publicacion."';";
               $consulta=$db->sql_query($sql);
               $fila    =$db->sql_fetchrow($consulta);
               $db->sql_close();
