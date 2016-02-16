@@ -14,9 +14,9 @@
               $this->tabla  =$configuracion->propiedad("prefijo")."_usuarios_usuarios";
               $db           =new MySQL();
               if($db->sql_tableexist($this->tabla)){
-                  echo("Existe");
+                  //echo("Existe");
               } else{
-                  echo("No Existe se creara");
+                  //echo("No Existe se creara");
                   $this->inicializar();                  
               }
           }

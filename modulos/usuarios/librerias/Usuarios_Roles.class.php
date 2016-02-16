@@ -2,10 +2,24 @@
 
   $raiz=isset($raiz)?$raiz:"../../../";
   require_once($raiz."modulos/usuarios/librerias/Configuracion.cnf.php");
-  
+
   if(!class_exists('Usuarios_Roles')){
 
       class Usuarios_Roles{
+
+          var $tabla;
+
+          function Usuarios_Roles(){
+              $configuracion=new Configuracion();
+              $this->tabla  =$configuracion->propiedad("prefijo")."_usuarios_roles";
+              $db           =new MySQL();
+              if($db->sql_tableexist($this->tabla)){
+                  //echo("Existe");
+              } else{
+                  //echo("No Existe se creara");
+                  $this->inicializar();
+              }
+          }
 
           function crear($datos){
               $db =new MySQL();
@@ -46,6 +60,13 @@
               $fila    =$db->sql_fetchrow($consulta);
               $db->sql_close();
               return($fila);
+          }
+
+          function inicializar(){
+              $db      =new MySQL();
+              $sql     ="";
+              $consulta=$db->sql_query($sql);
+              $db->sql_close();
           }
 
       }

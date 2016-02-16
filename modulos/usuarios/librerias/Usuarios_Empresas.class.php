@@ -7,6 +7,20 @@
 
       class Usuarios_Empresas{
 
+          var $tabla;
+
+          function Usuarios_Empresas(){
+              $configuracion=new Configuracion();
+              $this->tabla  =$configuracion->propiedad("prefijo")."_usuarios_empresas";
+              $db           =new MySQL();
+              if($db->sql_tableexist($this->tabla)){
+                  //echo("Existe");
+              } else{
+                  //echo("No Existe se creara");
+                  $this->inicializar();
+              }
+          }
+
           function crear($datos){
               $db =new MySQL();
               $sql="INSERT INTO `".$configuracion["empresa"]."_usuarios_empresas` SET "
@@ -45,6 +59,13 @@
               $fila    =$db->sql_fetchrow($consulta);
               $db->sql_close();
               return($fila);
+          }
+
+          function inicializar(){
+              $db      =new MySQL();
+              $sql     ="";
+              $consulta=$db->sql_query($sql);
+              $db->sql_close();
           }
 
       }
