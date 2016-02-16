@@ -1,7 +1,8 @@
 <?php
 
   $raiz=isset($raiz)?$raiz:"../../../";
-  require_once($raiz."modulos/usuarios/Configuracion.cnf.php");
+  require_once($raiz."modulos/usuarios/librerias/Configuracion.cnf.php");
+
   if(!class_exists('Usuarios_Usuarios')){
 
       class Usuarios_Usuarios{
