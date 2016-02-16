@@ -6,5 +6,11 @@
  * and open the template in the editor.
  */
   
-  $prefijo="CCV";
-
+  $configuracion["empresa"]="CCV";
+  
+  /** Librerias **/
+  $raiz=isset($raiz)?$raiz:"../";
+  require_once($raiz."librerias/MySQL.class.php");
+  
+  
+  ?>
