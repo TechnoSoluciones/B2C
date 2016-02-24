@@ -4,10 +4,12 @@
 
       public function header($arguments=array()){
           if(is_array($arguments)){
-              $arguments["data-role"]=!isset($arguments["data-role"])?"header":$arguments["data-role"];
-              $arguments["class"]    =!isset($arguments["class"])?"jqm-header":$arguments["class"];
-              $atributos             =$this->makeAttributes($arguments);
-              $html                  ="\n\t<div ".$atributos.">".$arguments["html"]."\n\t</div><!-- header -->";
+              $arguments["data-role"]      =!isset($arguments["data-role"])?"header":$arguments["data-role"];
+              $arguments["class"]          =!isset($arguments["class"])?"jqm-header":$arguments["class"];
+              $arguments["data-position"]  =!isset($arguments["data-position"])?"fixed":$arguments["data-position"];
+              $arguments["data-fullscreen"]=!isset($arguments["data-fullscreen"])?"true":$arguments["data-fullscreen"];
+              $atributos                   =$this->makeAttributes($arguments);
+              $html                        ="\n\t<div ".$atributos.">".$arguments["html"]."\n\t</div><!-- header -->";
               return($html);
           } else{
               return("JQueryMobile->header: Debe ingresar los valores en un vector.");
@@ -86,15 +88,31 @@
 
       public function footer($arguments=array()){
           if(is_array($arguments)){
-              $arguments["data-role"]=!isset($arguments["data-role"])?"footer":$arguments["data-role"];
-              $arguments["class"]    =!isset($arguments["class"])?"jqm-footer":$arguments["class"];
-              $atributos             =$this->makeAttributes($arguments);
-              $html                  ="\n\t<div ".$atributos.">".$arguments["html"]."\n\t</div><!-- footer -->";
+              $arguments["data-role"]    =!isset($arguments["data-role"])?"footer":$arguments["data-role"];
+              $arguments["class"]        =!isset($arguments["class"])?"jqm-footer":$arguments["class"];
+              $arguments["data-position"]=!isset($arguments["data-position"])?"fixed":$arguments["data-position"];
+
+
+              $atributos=$this->makeAttributes($arguments);
+              $html     ="\n\t<div ".$atributos.">".$arguments["html"]."\n\t</div><!-- footer -->";
               return($html);
           } else{
               return("JQueryMobile->header: Debe ingresar los valores en un vector.");
           }
       }
+      
+      public function listView($arguments=array()){
+          if(is_array($arguments)){
+              $arguments["data-role"]    =!isset($arguments["data-role"])?"listview":$arguments["data-role"];
+              $arguments["data-inset"]=!isset($arguments["data-inset"])?"true":$arguments["data-inset"];
+              $atributos=$this->makeAttributes($arguments);
+              $html     ="\n\t<ul ".$atributos.">".$arguments["html"]."\n\t</ul><!-- listView -->";
+              return($html);
+          } else{
+              return("JQueryMobile->header: Debe ingresar los valores en un vector.");
+          }
+      }
+      
 
   }
 
