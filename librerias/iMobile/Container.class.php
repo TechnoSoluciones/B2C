@@ -39,7 +39,7 @@
        *
        * @var string
        */
-      const CSS='//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css';
+      const CSS='http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css';
 
       /**
        * Default Doctype
@@ -53,14 +53,14 @@
        *
        * @var string
        */
-      const JQUERY_PATH='//code.jquery.com/jquery-1.8.3.min.js';
+      const JQUERY_PATH='http://code.jquery.com/jquery-1.8.3.min.js';
 
       /**
        * Default jQuery Mobile path
        *
        * @var string
        */
-      const JQUERY_MOBILE_PATH='//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js';
+      const JQUERY_MOBILE_PATH='http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js';
 
       /**
        * Default XML namespace
@@ -86,7 +86,7 @@
       /**
        * @var string
        */
-      const TITLE='JQuery Mobile Application';
+      const TITLE='Techno Soluciones Application';
 
       /**
        * @var Html

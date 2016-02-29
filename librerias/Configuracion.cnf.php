@@ -15,7 +15,8 @@
   
     /** Librerias **/
   $raiz=isset($raiz)?$raiz:"../";
+  require_once($raiz."librerias/iMobile/Configuracion.cnf.php");
   require_once($raiz."librerias/MySQL.class.php");
-    require_once($raiz."librerias/JQueryMobile.class.php");
+  require_once($raiz."librerias/JQueryMobile.class.php");
   
   ?>
